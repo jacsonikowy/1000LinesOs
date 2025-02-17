@@ -1,6 +1,11 @@
 #pragma once
 #include "common.h"
 
+#define PROCS_MAX 8
+
+#define PROCS_UNUSED 0
+#define PROCS_RUNNABLE 1
+
 typedef unsigned char uint8_t;
 typedef unsigned int uint32_t;
 typedef uint32_t size_t;
@@ -11,6 +16,13 @@ extern char __free_ram[], __free_ram_end[];
 struct sbiret {
   long error;
   long value;
+};
+
+struct process {
+  int pid;
+  int state;
+  vaddr_t sp;
+  uint8_t stack[8192];
 };
 
 struct trap_frame {
