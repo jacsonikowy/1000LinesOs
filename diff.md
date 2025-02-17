@@ -1,3 +1,0 @@
-- strncpy and strcpy
-- stackless async "single kernel stac"
-- buddy system allocation
