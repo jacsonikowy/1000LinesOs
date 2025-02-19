@@ -2,6 +2,14 @@
 
 void putchar(char ch);
 
+bool is_aligned(uint32_t value, size_t align) {
+  if (align <= 1) {
+    return true;
+  }
+  
+  return (value & (align - 1)) == 0;
+}
+
 void printf(const char *fmt, ...) {
   va_list vargs;
   va_start(vargs, fmt);

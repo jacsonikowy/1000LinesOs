@@ -1,5 +1,5 @@
 compile: kernel.ld kernel.c
-	riscv64-unknown-elf-gcc -Wall -Wextra -march=rv32imafd -mabi=ilp32 -T kernel.ld -ffreestanding -O2 -nostdlib -o kernel.elf kernel.c common.c
+	riscv64-unknown-elf-gcc -Wall -Wextra -march=rv32imafd -mabi=ilp32 -T kernel.ld -ffreestanding -O2 -g3 -std=c11 -nostdlib -o kernel.elf kernel.c common.c
 
 ld:
 	riscv64-unknown-elf-ld -o 

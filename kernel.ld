@@ -3,6 +3,7 @@ ENTRY(boot)
 SECTIONS {
   /* Why 0x802 not 0x80 */
   . = 0x80200000;
+  __kernel_base = .;
 
   .text :{
     KEEP(*(.text.boot));

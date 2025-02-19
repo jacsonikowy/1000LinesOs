@@ -12,9 +12,13 @@ typedef uint32_t vaddr_t;
 #define true 1
 #define false 0
 #define NULL ((void *) 0)
-#define align_up(value, align) __builtin_align_up(value_align);
-#define is_aligned(value, align) __builtin_is_aligned(value_align);
-#define offsetof(type, member) __builtin_offsetof(type, member);
+#define align_up(value, align) __builtin_align_up(value, align)
+/*
+ * In GCC __builtin_is_aligned doesn't exist :(
+#define is_aligned(value, align) __builtin_is_aligned(value, align)
+*/
+#define is_aligned(value, align) __builtin_is_aligned(value, align)
+#define offsetof(type, member) __builtin_offsetof(type, member)
 #define va_list __builtin_va_list
 #define va_start __builtin_va_start
 #define va_end __builtin_va_end
@@ -27,3 +31,5 @@ char *strcpy(char *dst, const char *src);
 char *strncpy(char *dst, const char *src, size_t n);
 int strcmp(const char *s1, const char *s2);
 void printf(const char *fmt, ...);
+
+bool is_aligned(uint32_t value, size_t align);
