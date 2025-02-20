@@ -1,6 +1,8 @@
 #pragma once
 #include "common.h"
 
+#define USER_BASE 0x1000000
+
 #define PROCS_MAX 8
 
 #define PROCS_UNUSED 0
