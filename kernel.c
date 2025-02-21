@@ -111,8 +111,16 @@ struct order {
   int free; 
 };
 
-void user_entry(void) {
-  PANIC("not yet implemented");
+__attribute__((naked)) void user_entry(void) {
+  __asm__ __volatile__(
+    "csrw sepc, %[sepc] \n"
+    // not necessary cause this impl uses polling instead of hardware interuption
+    "csrw sstatus, %[sstatus] \n"
+    "sret \n"
+    :
+    : [sepc] "r" (USER_BASE),
+      [sstatus] "r" (SSTATUS_SPIE)
+  );
 }
 
 struct process procs[PROCS_MAX];

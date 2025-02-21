@@ -15,6 +15,8 @@
 #define PAGE_X (1 << 3)
 #define PAGE_U (1 << 4)
 
+#define SSTATUS_SPIE (1 << 5)
+
 typedef unsigned char uint8_t;
 typedef unsigned int uint32_t;
 typedef uint32_t size_t;
